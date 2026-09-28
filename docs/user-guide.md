@@ -1,6 +1,6 @@
 # Mobi Reader
 
-A local Windows ebook library and chapter reader written in Rust. The interface uses Dioxus Native with Blitz layout and Vello/wgpu rendering. It runs as a native window; it does not need WebView2, a browser server, or the Dioxus CLI.
+A local Windows and Linux ebook library and chapter reader written in Rust. The interface uses Dioxus Native with Blitz layout and Vello/wgpu rendering. It runs as a native window; it does not need WebView2, a browser server, or the Dioxus CLI.
 
 ## What it supports
 
@@ -39,6 +39,18 @@ The original open-book icon lives in `assets/icon.svg`. `build.rs` generates nin
 
 `dioxus-native` is pinned to Blitz commit `7931e6794d5d0e791660cc3474536047c01239ed` in `Cargo.toml`; Dioxus core packages use 0.7.10. Keep `Cargo.lock` for reproducible dependency resolution. No `dx` command is needed.
 
+## Build and run on Linux
+
+On Ubuntu 24.04, install the native dependencies listed in the README, then run
+`cargo build --locked --release` and `./target/release/mobi-reader`. Pass EPUB or
+MOBI paths as command-line arguments to import them at launch. The default
+library lives in the Linux user data directory; set `MOBI_READER_DATA_DIR` to
+use an isolated library.
+
+On WSLg, launch it with the same command as on other Linux desktops. WSLg
+normally selects Wayland. If Weston disconnects, the X11 fallback is
+`env -u WAYLAND_DISPLAY ./target/release/mobi-reader`.
+
 ## Built-in MOBI import
 
 The reader parses and converts common DRM-free legacy MOBI books directly, including uncompressed, PalmDOC, and HUFF/CDIC compressed text. Dual-format MOBI files use their legacy content. UTF-8 and Windows-1252 text, titles, authors, covers, local raster images, and internal `filepos` links are supported. Page breaks provide sections and contents navigation.
@@ -57,7 +69,9 @@ The example uses a temporary library. Pass `-` instead of a path to read MOBI by
 
 ## Local storage
 
-The default Windows library folder is `%LOCALAPPDATA%\MobiReader`. Settings displays the resolved location. It contains:
+The default library folder is `%LOCALAPPDATA%\MobiReader` on Windows and
+`$XDG_DATA_HOME/MobiReader` on Linux (usually `~/.local/share/MobiReader`).
+Settings displays the resolved location. It contains:
 
 - `library.sqlite3` and SQLite journal files for library entries, preferences, reading locations, and bookmarks.
 - `books\<source-sha256>\book.epub` for validated managed copies.

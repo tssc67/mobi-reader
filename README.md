@@ -2,16 +2,19 @@
 
 <p align="center"><img src="assets/icon.svg" alt="Mobi Reader app icon" width="128" height="128"></p>
 
-A quiet, native Windows reader for your own EPUB and DRM-free legacy MOBI books.
+A quiet, native Windows and Linux reader for your own EPUB and DRM-free legacy MOBI books.
 Built in Rust with Dioxus Native, Blitz, and Vello/wgpu. No browser server,
 WebView2, or Calibre installation is required.
 
 ## Download
 
-Get the Windows x86-64 ZIP from [Releases](https://github.com/tssc67/mobi-reader/releases/latest).
-Extract it and run `mobi-reader.exe`. Windows 10/11 with a working GPU driver is
-the intended platform. Binaries are currently unsigned; Windows may show a
-reputation warning. Keep the included license notices with redistributed copies.
+Get the Windows x86-64 ZIP from
+[Releases](https://github.com/tssc67/mobi-reader/releases/latest), or build the
+Linux x86-64 tarball from source with the instructions below. Run
+`mobi-reader.exe` on Windows or `./mobi-reader` on Linux. A working
+wgpu-compatible graphics driver is required. Binaries are currently unsigned;
+Windows may show a reputation warning. Keep the included license notices with
+redistributed copies.
 
 ## Features
 
@@ -27,8 +30,8 @@ cloud sync, annotations, or paginated spreads yet.
 
 ## Build
 
-Install Rust **1.96 or newer**, Visual Studio C++ Build Tools, and the Windows SDK.
-Use the `x86_64-pc-windows-msvc` toolchain.
+Install Rust **1.96 or newer**. On Windows, install Visual Studio C++ Build Tools
+and the Windows SDK, and use the `x86_64-pc-windows-msvc` toolchain.
 
 ```powershell
 git clone https://github.com/tssc67/mobi-reader.git
@@ -40,6 +43,22 @@ cargo build --locked --release
 
 Styles, fonts, and icons are embedded in the executable. Keep Cargo.lock committed;
 the native renderer is pinned and carries a small documented local layout fix.
+
+On Ubuntu 24.04 or WSL, install the native build and runtime libraries, then build
+with the Linux Rust toolchain:
+
+```sh
+sudo apt-get update
+sudo apt-get install build-essential pkg-config libx11-dev libxcursor-dev libxi-dev libxrandr-dev libxkbcommon-dev libxkbcommon-x11-0 libwayland-dev libasound2-dev libudev-dev libssl-dev libfontconfig1-dev libfreetype6-dev libgtk-3-dev libdbus-1-dev
+cargo test --locked --all-targets
+cargo build --locked --release
+./target/release/mobi-reader
+```
+
+WSLg and other Linux desktops use their normal Wayland or X11 display selection.
+If WSLg's Weston compositor disconnects, X11 remains available as a fallback:
+`env -u WAYLAND_DISPLAY ./target/release/mobi-reader`. Linux builds can be
+packaged with `bash scripts/package-release.sh`.
 
 ## Documentation
 

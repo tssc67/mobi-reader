@@ -3,7 +3,7 @@ name = "mobi-reader"
 version = "0.1.0"
 edition = "2024"
 rust-version = "1.96"
-description = "A quiet, native Windows library for EPUB and MOBI books"
+description = "A quiet, native Windows and Linux library for EPUB and MOBI books"
 license = "MIT"
 
 [dependencies]

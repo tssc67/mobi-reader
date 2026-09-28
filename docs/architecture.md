@@ -1,6 +1,6 @@
 # Architecture
 
-Mobi Reader is a Windows desktop application. Dioxus manages the UI; Blitz handles
+Mobi Reader is a Windows and Linux desktop application. Dioxus manages the UI; Blitz handles
 HTML/CSS layout; Vello and wgpu render a native window. There is no web server or
 WebView2 runtime. Styles, fonts, and the application icon are embedded.
 
@@ -18,7 +18,7 @@ WebView2 runtime. Styles, fonts, and the application icon are embedded.
 | `src/persistence.rs` | Ordered background persistence and flush/error handling |
 | `src/model.rs`, `src/settings.rs` | Shared records and appearance settings |
 | `src/controls.rs`, `src/platform.rs` | Shared native controls and platform integration |
-| `build.rs`, `assets/icon.svg` | Windows executable and window icon generation |
+| `build.rs`, `assets/icon.svg` | Window icon generation and Windows executable resources |
 
 ## Import and reading
 

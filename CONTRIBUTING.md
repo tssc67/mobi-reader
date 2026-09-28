@@ -4,14 +4,15 @@ Feel free to contribute! Bug reports, documentation improvements, accessibility
 work, and focused pull requests are welcome.
 
 For a larger feature, open an issue first so we can agree on the scope. For bugs,
-include the Windows version, display scale, graphics adapter, application version,
+include the operating system and version, display server, display scale, graphics adapter, application version,
 reproduction steps, and expected versus actual behavior. Do not upload private or
 copyrighted books; use a small original fixture or link to a legally available sample.
 
 ## Development
 
-Install Rust 1.96 or newer and the Visual Studio C++ build tools with the Windows
-SDK. Clone the repository and run `cargo run --locked`. No Dioxus CLI is needed.
+Install Rust 1.96 or newer. On Windows, install the Visual Studio C++ build tools
+with the Windows SDK. On Linux, install the native libraries listed in the README.
+Clone the repository and run `cargo run --locked`. No Dioxus CLI is needed.
 Set `MOBI_READER_DATA_DIR` to a disposable directory to isolate development data.
 
 Before opening a pull request, run:

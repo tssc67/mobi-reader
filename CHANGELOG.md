@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Added Linux source builds, Linux CI, and an x86-64 release packaging script.
+- Verified WSLg Wayland launch and EPUB import; documented X11 as a fallback if
+  the WSLg compositor disconnects.
+
 ## 0.1.0 - 2026-09-28
 
 Initial public Windows release.

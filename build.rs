@@ -19,7 +19,7 @@ fn main() {
         if size == 64 {
             // Winit expects straight-alpha RGBA; the SVG renderer uses premultiplied RGB.
             let mut rgba = pixels.data().to_vec();
-            for pixel in rgba.chunks_exact_mut(4) {
+            for pixel in rgba.as_chunks_mut::<4>().0 {
                 let alpha = u32::from(pixel[3]);
                 for channel in &mut pixel[..3] {
                     *channel = (u32::from(*channel) * 255 + alpha / 2)
