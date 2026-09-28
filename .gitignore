@@ -1,0 +1,23 @@
+/target/
+/dist/
+*.log
+
+# Local settings, credentials, and editor state
+.env
+.env.*
+!.env.example
+.vscode/
+.idea/
+*.user
+*.suo
+Thumbs.db
+.DS_Store
+
+# Personal libraries and imported books never belong in source control.
+*.sqlite3
+*.sqlite3-*
+*.epub
+*.mobi
+*.azw
+*.azw3
+*.kfx

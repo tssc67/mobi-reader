@@ -1,0 +1,62 @@
+[package]
+name = "mobi-reader"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.96"
+description = "A quiet, native Windows library for EPUB and MOBI books"
+license = "MIT"
+
+[dependencies]
+dioxus-native = { git = "https://github.com/DioxusLabs/blitz", rev = "7931e6794d5d0e791660cc3474536047c01239ed", default-features = false, features = ["prelude", "accessibility", "html", "svg", "system-fonts", "clipboard", "file-dialog", "vello", "complex-scripts", "scrollbars", "data-uri"] }
+dioxus-core = "0.7.10"
+dioxus-html = "0.7.10"
+dioxus-hooks = "0.7.10"
+dioxus-signals = "0.7.10"
+anyhow = "1"
+base64 = "0.22"
+chrono = { version = "0.4", features = ["serde"] }
+directories = "6"
+encoding_rs = "0.8"
+percent-encoding = "2"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+kuchiki = "0.8"
+rbook = { version = "0.7.10", default-features = false, features = ["threadsafe", "prelude"] }
+rfd = "0.15"
+rusqlite = { version = "0.37", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha2 = "0.10"
+tokio = { version = "1", features = ["rt-multi-thread", "time", "sync"] }
+url = "2"
+peniko = "0.6"
+anyrender = "0.13"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.61", features = ["Win32_Foundation", "Win32_Graphics_Gdi", "Win32_UI_WindowsAndMessaging", "Win32_System_LibraryLoader", "Win32_UI_HiDpi"] }
+
+[dev-dependencies]
+roxmltree = "0.21"
+tempfile = "3"
+anyrender_vello = "0.14"
+image = { version = "0.25", default-features = false, features = ["png"] }
+blitz-dom = { git = "https://github.com/DioxusLabs/blitz", rev = "7931e6794d5d0e791660cc3474536047c01239ed" }
+blitz-traits = { git = "https://github.com/DioxusLabs/blitz", rev = "7931e6794d5d0e791660cc3474536047c01239ed" }
+blitz-html = { git = "https://github.com/DioxusLabs/blitz", rev = "7931e6794d5d0e791660cc3474536047c01239ed" }
+blitz-paint = { git = "https://github.com/DioxusLabs/blitz", rev = "7931e6794d5d0e791660cc3474536047c01239ed" }
+
+[build-dependencies]
+resvg = { version = "0.48.1", default-features = false }
+winresource = "0.1.31"
+
+[patch."https://github.com/DioxusLabs/blitz"]
+blitz-dom = { path = "vendor/blitz-dom" }
+
+[profile.release]
+lto = "thin"
+strip = true
+
+[profile.dev]
+debug = 0
+
+[profile.dev.package."*"]
+opt-level = 1

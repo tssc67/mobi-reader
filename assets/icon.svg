@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="cover" x1="35" y1="12" x2="220" y2="248" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#bd914b"/>
+      <stop offset="1" stop-color="#795124"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="142" y1="65" x2="194" y2="191" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fffcf2"/>
+      <stop offset="1" stop-color="#f1e6cd"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="52" fill="url(#cover)"/>
+  <rect x="10" y="10" width="236" height="236" rx="50" fill="none" stroke="#e9c98b" stroke-opacity=".38" stroke-width="2"/>
+  <path d="M42 76Q84 60 123 85L128 91L133 85Q172 60 214 76V190Q169 178 128 207Q87 178 42 190Z" fill="#493419" opacity=".25"/>
+  <path d="M45 72Q86 58 123 82V193Q87 170 45 184Z" fill="#ddcbaa"/>
+  <path d="M133 82Q170 58 211 72V184Q169 170 133 193Z" fill="#ddcbaa"/>
+  <path d="M45 65Q86 51 123 75V184Q87 162 45 176Z" fill="#f4e8cf"/>
+  <path d="M133 75Q170 51 211 65V176Q169 162 133 184Z" fill="url(#paper)"/>
+  <path d="M156 64Q168 60 181 60V114L168.5 105L156 116Z" fill="#ae5236"/>
+  <path d="M61 94Q87 89 106 100M61 117Q87 112 106 123M61 140Q84 135 99 144" fill="none" stroke="#a68855" stroke-opacity=".42" stroke-width="5" stroke-linecap="round"/>
+</svg>
