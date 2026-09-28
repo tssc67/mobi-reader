@@ -1,5 +1,7 @@
 # Mobi Reader
 
+<p align="center"><img src="assets/icon.svg" alt="Mobi Reader app icon" width="128" height="128"></p>
+
 A quiet, native Windows reader for your own EPUB and DRM-free legacy MOBI books.
 Built in Rust with Dioxus Native, Blitz, and Vello/wgpu. No browser server,
 WebView2, or Calibre installation is required.
@@ -41,6 +43,7 @@ the native renderer is pinned and carries a small documented local layout fix.
 
 ## Documentation
 
+- [Website](https://tssc67.github.io/mobi-reader/) and [publishing / search indexing](docs/website.md).
 - [User guide](docs/user-guide.md): importing, formats, local storage, limits, and diagnostics.
 - [Architecture](docs/architecture.md): source map, data flow, and the renderer patch.
 - [Contributing](CONTRIBUTING.md): setup, checks, and pull request guidance.
